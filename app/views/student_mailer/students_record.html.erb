@@ -1,0 +1,11 @@
+<h1>Students Record</h1>
+---------------------------------------------------------------------
+<% @students.each do |student| %>
+
+  <p>Name: <%= student.name %></p>
+  <p>Email: <%= student.email %></p>
+  <p>Phone: <%= student.phone_number %></p>
+  <p>
+  -------------------------------------------
+  </p>
+<% end %>
