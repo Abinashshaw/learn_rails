@@ -1,0 +1,15 @@
+<h1>Listing available Images</h1>
+<p>Click on the name of image to view them</p>
+<p><%= link_to 'Add new image', new_image_path %></p>
+<table>
+  <tr>
+    <td><strong>Name</strong></td>
+    <td><strong>Caption</strong></td>
+  </tr>
+  <% @images.each do |image| %>
+    <tr>
+      <td><%= link_to image.name, image_path(image) %></td>
+      <td><%= image.caption %></td>
+    </tr>
+  <% end %>
+</table>

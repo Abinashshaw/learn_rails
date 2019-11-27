@@ -1,0 +1,26 @@
+<h1>Add a new profile image</h1>
+<% if @image.errors.any? %>
+  <h2><%= pluralize(@image.errors.count, "error") %> prevented image from being created</h2>
+  <% @image.errors.full_messages.each do |msg| %>
+    <ul>
+      <li><%= msg %></li>
+    </ul>
+  <% end %>
+<% end %>
+<%= form_for @image do |f| %>
+  <strong><%= f.label :name %></strong>
+  <br />
+  <%= f.text_field :name %>
+  <br /><br />
+  <strong><%= f.label :picture %></strong>
+  <br />
+  <%= f.file_field :picture %>
+  <br /><br />
+  <strong><%= f.label :caption %></strong>
+  <br />
+  <%= f.text_field :caption %>
+  <br /><br />
+  <%= f.submit %>
+<% end %>
+<br />
+<%= link_to 'Back to Listing Images', images_path %>
