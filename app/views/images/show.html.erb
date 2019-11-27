@@ -3,6 +3,13 @@
   <strong>Name:</strong>
   <%= @image.name %>
 </p>
+<P>
+  <strong>Image:</strong>
+  <br />
+  <div style= "width: 400px; height: auto;">
+    <%= image_tag(@image.picture, style: "width: 100%") %>
+  </div>
+</p>
 <p>
   <strong>Caption:</strong>
   <%= @image.caption %>
