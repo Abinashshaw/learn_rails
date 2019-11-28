@@ -2,7 +2,7 @@ class CustomersController < ApplicationController
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
 
   def index
-    @customers = Customer.all
+    @customers = Customer.search(params[:search])
   end
   def new
     @customer = Customer.new
@@ -40,6 +40,6 @@ class CustomersController < ApplicationController
       @customer = Customer.find(params[:id])
     end
     def customer_params
-      params.require(:customer).permit(:name,:email)
+      params.require(:customer).permit(:name,:email,:search)
     end
 end
