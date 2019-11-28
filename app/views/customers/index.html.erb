@@ -1,0 +1,26 @@
+<h1>Listing customers</h1>
+<%= link_to 'Create new Customer', new_customer_path %>
+<br /><br />
+<%= form_tag customers_path, :method => 'get' do %>
+  <strong>Search a customer with name of email</strong>
+  <br />
+  <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag "Search" %>
+<% end %>
+<br />
+<table>
+  <tr>
+    <td><strong>Name</strong></td>
+    <td><strong>Email</strong></td>
+  </tr>
+  <% @customers.each do |customer| %>
+    <tr>
+      <td><%= customer.name %></td>
+      <td><%= customer.email %></td>
+      <td><%= link_to 'show', customer_path(customer) %></td>
+      <td><%= link_to 'edit', edit_customer_path(customer) %></td>
+      <td><%= link_to 'delete', customer_path(customer), method: :delete, 
+                                data: {confirm: "Are you sure?"} %></td>
+    </tr>
+  <% end %>
+</table>
